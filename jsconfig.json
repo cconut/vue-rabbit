@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
+      //做联想提示，输入@时会有提示
       "@/*": [
         "./src/*"
       ]
