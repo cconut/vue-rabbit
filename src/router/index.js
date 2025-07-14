@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Layout from "@/views/Layout/index.vue"
-import Login from "@/views/Login/index.vue"
+
 //createWebHistory 创建history模式的路由
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +17,14 @@ const router = createRouter({
           path: 'category/:id',
           component: () => import("@/views/Category/index.vue")
         },
+        {
+          path: 'category/sub/:id',
+          component: () => import("@/views/SubCategory/index.vue")
+        },
+        {
+          path: 'detail/:id',
+          component: () => import("@/views/Detail/index.vue")
+        }
       ]
     },
     {
@@ -25,6 +32,13 @@ const router = createRouter({
       component: () => import('@/views/Login/index.vue')
     }
   ],
+  //路由滚动行为定制
+  //每次切换路由，都从顶部开始显示
+  scrollBehavior() {
+    return {
+      top: 0
+    }
+  }
 })
 
 export default router
